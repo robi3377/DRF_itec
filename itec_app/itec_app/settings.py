@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-uah$-+#8kc==96rqd16cnol$esj%ig7fq8m%_!cswjf+7wyi0%
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'core',
     'rest_framework',
+    'rest_framework.authtoken',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -49,7 +51,13 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
 ]
+# CORS_ALLOWED_ORIGINS = [
+# "http://192.168.47.176:5173",
+# ]
+CORS_ALLOW_ALL_ORIGINS = True
 
 ROOT_URLCONF = 'itec_app.urls'
 
